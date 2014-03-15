@@ -1,0 +1,4 @@
+shop/db/*.sqlite3
+shop/log/*.log
+shop/tmp/**/*
+shop/config/database.yml
