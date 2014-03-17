@@ -13,8 +13,15 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
+  #config.autoload_paths += %W( #{RAILS_ROOT}/ewh )
+  #$:.push("/home/artannik/ruby/gems/cache/mysql-2.9.1.gem")
+  #config.autoload_paths << "/home/artannik/ruby/gems/"
+  #$:.push("/home/artannik/ruby/gems/")
+  $:.unshift("/home/artannik/ruby/gems/")
 
   # Specify gems that this application depends on and have them installed with rake gems:install
+  #config.gem "mysql"
+  #config.gem "activerecord-postgresql-adapter"
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
