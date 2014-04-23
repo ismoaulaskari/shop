@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @news.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @news.date %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @news.text %>
+</p>
+
+<p>
+  <b>Expired:</b>
+  <%=h @news.expired %>
+</p>
+
+
+<%= link_to 'Edit', edit_news_path(@news) %> |
+<%= link_to 'Back', news_path %>
