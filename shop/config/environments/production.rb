@@ -1,5 +1,7 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+#config.autoload_paths += %W( "/home/artannik/ruby/gems/gems/mysql-2.9.1/" )
+#config.autoload_paths << "/home/artannik/ruby/gems/"
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
 config.cache_classes = true
