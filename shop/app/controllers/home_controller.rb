@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
- $:.push("/home/artannik/ruby/gems")
+    @env = request.env
   end
 
 end
