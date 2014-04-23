@@ -1,0 +1,28 @@
+<h1>Editing user</h1>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :provider %><br />
+    <%= f.text_field :provider %>
+  </p>
+  <p>
+    <%= f.label :uid %><br />
+    <%= f.text_field :uid %>
+  </p>
+  <p>
+    <%= f.label :oauth_token %><br />
+    <%= f.text_field :oauth_token %>
+  </p>
+  <p>
+    <%= f.label :oauth_expires_at %><br />
+    <%= f.datetime_select :oauth_expires_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
