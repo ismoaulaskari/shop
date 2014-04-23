@@ -1,0 +1,53 @@
+<p>
+  <b>Sum:</b>
+  <%=h @order.sum %>
+</p>
+
+<p>
+  <b>Paymethod:</b>
+  <%=h @order.paymethod %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @order.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @order.address %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @order.zip %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @order.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @order.country %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @order.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @order.email %>
+</p>
+
+<p>
+  <b>Modified:</b>
+  <%=h @order.modified %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
