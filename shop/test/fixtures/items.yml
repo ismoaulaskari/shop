@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  price: 1
+  discount: 1
+  saldo: 1
+  picurl: MyString
+  modified: 2014-04-23 20:22:06
+
+two:
+  name: MyString
+  description: MyString
+  price: 1
+  discount: 1
+  saldo: 1
+  picurl: MyString
+  modified: 2014-04-23 20:22:06
