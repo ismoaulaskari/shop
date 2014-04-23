@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @item.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @item.price %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @item.discount %>
+</p>
+
+<p>
+  <b>Saldo:</b>
+  <%=h @item.saldo %>
+</p>
+
+<p>
+  <b>Picurl:</b>
+  <%=h @item.picurl %>
+</p>
+
+<p>
+  <b>Modified:</b>
+  <%=h @item.modified %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
