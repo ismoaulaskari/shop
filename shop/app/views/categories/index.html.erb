@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Parent</th>
     <th>Description</th>
     <th>Picurl</th>
     <th>Discount</th>
@@ -11,6 +12,7 @@
 <% @categories.each do |category| %>
   <tr>
     <td><%=h category.name %></td>
+    <td><%=h category.parent %></td>
     <td><%=h category.description %></td>
     <td><%=h category.picurl %></td>
     <td><%=h category.discount %></td>

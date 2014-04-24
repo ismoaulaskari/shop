@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :orders
-
   map.resources :categories
+
+  map.resources :orders
 
   map.resources :items
 
