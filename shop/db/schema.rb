@@ -9,10 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140423173544) do
+ActiveRecord::Schema.define(:version => 20140424171100) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.string   "parent"
     t.string   "description"
     t.string   "picurl"
     t.integer  "discount"
