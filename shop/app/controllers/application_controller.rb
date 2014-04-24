@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
   USERNAME, PASSWORD = "a", "b"
   before_filter :authenticate
+  layout "application"
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
