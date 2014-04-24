@@ -2,12 +2,14 @@
 
 one:
   name: MyString
+  parent: MyString
   description: MyString
   picurl: MyString
   discount: 1
 
 two:
   name: MyString
+  parent: MyString
   description: MyString
   picurl: MyString
   discount: 1
