@@ -1,8 +1,12 @@
 <table><tr>
-<td><%= link_to 'Kaikki tuotteet', items_path %></td>
-<td><%= link_to 'Kategoriat', categories_path %></td>
+<td><%= link_to 'Etusivu', items_path %></td>
+<td><%= link_to 'Korut', Category.find_by_name('Korut') %></td>
+<td><%= link_to 'Kortit', Category.find_by_name('Kortit') %></td>
+<td><%= link_to 'Saippuat',  Category.find_by_name('Saippuat') %></td>
+<td><%= link_to 'Miten tilaan', orders_path %></td>
+<td><%= link_to 'Tietoa yrityksestä', orders_path %></td>
+<td><%= link_to 'Anna palautetta', orders_path %></td>
 <td><%= link_to 'Ostoskori', orders_path %></td>
-<td><%= link_to 'Kassalle', orders_path %></td>
 <% #if not current_user.nil? %>
 
 <%# end %>
