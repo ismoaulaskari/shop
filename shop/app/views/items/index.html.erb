@@ -1,18 +1,29 @@
 <h1>Tuotteet</h1>
+<% i = 0 %>
 <table>
+  <tr>
 <% @items.each do |item| %>
+  <% i = i +1 %>
+  <td class="item">
+  <table>
   <tr class="prod">
-    <td>
+    <td class="info">
 <table><tr><td><%=h item.name %></td></tr><tr><td><i><%=h item.category %></i></td></tr><tr><td><b><%=h item.price-item.discount %></b> eur</td></tr><tr><td><i><%if item.saldo > 0 %>varastossa<%else%>loppu<%end%></i></td></tr></table>
     </td>
-    <td>
+    <td class="pic">
 <table><tr><td><%= link_to "<img src=\"../uploads/#{item.picurl}\" width=\"120\" />", item %></td></tr></table>
     </td>
-    <td>
+    <td class="extra">
 <table><tr><td><i>Päivitetty<br/> <%=h item.updated_at %></i></td></tr><tr><td><%= link_to 'Show', item %>|<%= link_to 'Edit', edit_item_path(item) %>|<%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td></tr></table>
     </td>
   </tr>
+  </table>
+  </td>
+  <% if i % 3 == 0 %>
+  </tr><tr>
+  <% end %>
 <% end %>
+  </tr>
 </table>
 
 <br />
