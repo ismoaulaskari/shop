@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   # GET /items/new.xml
   def new
     @item = Item.new
+    @category = Category.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,14 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
+    @category = Category.all
   end
 
   # POST /items
   # POST /items.xml
   def create
     @item = Item.new(params[:item])
+    @category = Category.all
 
     respond_to do |format|
       if @item.save

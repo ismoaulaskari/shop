@@ -1,0 +1,43 @@
+<% form_for(@item) do |f| %>  
+<%= f.error_messages %> 
+ 
+  <p> 
+    <%= f.label :name %> *<br /> 
+    <%= f.text_field :name %> 
+  </p> 
+  <p> 
+    <%= f.label :category %> *<br /> 
+    <% @category.each do |c| %>
+      <br><%= radio_button_tag(:category, c.name, 'Korut') %>
+      <%= c.name %>
+    <% end %>
+  </p> 
+  <p> 
+    <%= f.label :description %> *<br /> 
+    <%= f.text_field :description %> 
+  </p> 
+  <p> 
+    <%= f.label :price %> <i>eur</i> *<br /> 
+    <%= f.text_field :price %> 
+  </p> 
+  <p> 
+    <%= f.label :discount %> <i>eur</i><br /> 
+    <%= f.text_field :discount %> 
+  </p> 
+  <p> 
+    <%= f.label :saldo %> *<br /> 
+    <%= f.text_field :saldo, :value =>'1' %> 
+  </p> 
+  <p> 
+    <%= f.label :picurl %><br /> 
+    <%= f.text_field :picurl %> 
+  </p> 
+<!--  <p> 
+    <%= f.label :modified %><br /> 
+    <%= f.datetime_select :modified %> 
+  </p> -->
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
+
