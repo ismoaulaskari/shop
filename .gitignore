@@ -2,3 +2,4 @@ shop/db/*.sqlite3
 shop/log/*
 shop/tmp/**/*
 shop/config/database.yml
+shop/public/uploads/*

@@ -8,7 +8,7 @@
   <p> 
     <%= f.label :category %> *<br /> 
     <% @category.each do |c| %>
-      <br><%= radio_button_tag(:category, c.name, 'Korut') %>
+      <br><%= f.radio_button :category_id, c.id %>
       <%= c.name %>
     <% end %>
   </p> 
@@ -34,7 +34,7 @@
   </p> 
 <!--  <p> 
     <%= f.label :modified %><br /> 
-    <%= f.datetime_select :modified %> 
+    <%= f.datetime_select :updated_at %> 
   </p> -->
   <p>
     <%= f.submit 'Save' %>

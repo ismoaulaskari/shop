@@ -24,20 +24,20 @@ ActiveRecord::Schema.define(:version => 20140424171100) do
   create_table "items", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "price"
+    t.decimal  "price",       :precision => 8, :scale => 2
     t.integer  "discount"
     t.integer  "saldo"
     t.string   "picurl"
-    t.datetime "modified"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "news", :force => true do |t|
     t.string   "title"
-    t.datetime "date"
     t.string   "text"
     t.boolean  "expired"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20140424171100) do
     t.string   "country"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created"
     t.string   "notes"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

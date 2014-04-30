@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Category</th>
     <th>Description</th>
     <th>Price</th>
     <th>Discount</th>
@@ -14,12 +15,13 @@
 <% @items.each do |item| %>
   <tr>
     <td><%=h item.name %></td>
+    <td><%=h item.category %></td>
     <td><%=h item.description %></td>
     <td><%=h item.price %></td>
     <td><%=h item.discount %></td>
     <td><%=h item.saldo %></td>
     <td><a href="../uploads/<%=h item.picurl %>"><img src="../uploads/<%=h item.picurl %>" width="120" /></a></td>
-    <td><%=h item.modified %></td>
+    <td><%=h item.created_at %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -10,8 +10,8 @@ class CreateOrders < ActiveRecord::Migration
       t.string :country
       t.string :phone
       t.string :email
-      t.datetime :created
       t.string :notes
+      t.references :user
 
       t.timestamps
     end

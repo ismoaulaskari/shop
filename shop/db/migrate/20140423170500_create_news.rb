@@ -2,9 +2,9 @@ class CreateNews < ActiveRecord::Migration
   def self.up
     create_table :news do |t|
       t.string :title
-      t.datetime :date
       t.string :text
       t.boolean :expired
+      t.references :user
 
       t.timestamps
     end

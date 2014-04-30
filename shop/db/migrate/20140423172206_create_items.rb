@@ -3,11 +3,11 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.string :description
-      t.integer :price
+      t.decimal :price, :precision => 8, :scale => 2
       t.integer :discount
       t.integer :saldo
       t.string :picurl
-      t.datetime :modified
+      t.references :category
 
       t.timestamps
     end
