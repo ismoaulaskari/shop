@@ -1,7 +1,7 @@
 <h1>Tuotteet</h1>
 <table>
 <% @items.each do |item| %>
-  <tr>
+  <tr class="prod">
     <td>
 <table><tr><td><%=h item.name %></td></tr><tr><td><i><%=h item.category %></i></td></tr><tr><td><b><%=h item.price-item.discount %></b> eur</td></tr><tr><td><i><%if item.saldo > 0 %>varastossa<%else%>loppu<%end%></i></td></tr></table>
     </td>
