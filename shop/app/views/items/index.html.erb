@@ -6,7 +6,7 @@
 <table><tr><td><%=h item.name %></td></tr><tr><td><i><%=h item.category %></i></td></tr><tr><td><b><%=h item.price-item.discount %></b> eur</td></tr><tr><td><i><%if item.saldo > 0 %>varastossa<%else%>loppu<%end%></i></td></tr></table>
     </td>
     <td>
-<table><tr><td><a href="../uploads/<%=h item.picurl %>"><img src="../uploads/<%=h item.picurl %>" width="120" /></a></td></tr></table>
+<table><tr><td><%= link_to "<img src=\"../uploads/#{item.picurl}\" width=\"120\" />", item %></td></tr></table>
     </td>
     <td>
 <table><tr><td><i>Päivitetty<br/> <%=h item.updated_at %></i></td></tr><tr><td><%= link_to 'Show', item %>|<%= link_to 'Edit', edit_item_path(item) %>|<%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td></tr></table>

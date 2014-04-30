@@ -1,3 +1,10 @@
+
+<table>
+<tr>
+<td>
+  <p align="right"><%= link_to "<img src=\"../uploads/#{@item.picurl}\" width=\"320\" />", "../uploads/#{@item.picurl}" %></p>
+</td>
+<td>
 <p>
   <b>Name:</b>
   <%=h @item.name %>
@@ -38,6 +45,9 @@
   <%=h @item.updated_at %>
 </p>
 
+</td>
+</tr>
+</table>
 
 <%= link_to 'New item', new_item_path %> |
 <%= link_to 'Edit', edit_item_path(@item) %> |
