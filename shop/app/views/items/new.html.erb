@@ -1,39 +1,4 @@
 <h1>New item</h1>
-
-<% form_for(@item) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </p>
-  <p>
-    <%= f.label :discount %><br />
-    <%= f.text_field :discount %>
-  </p>
-  <p>
-    <%= f.label :saldo %><br />
-    <%= f.text_field :saldo %>
-  </p>
-  <p>
-    <%= f.label :picurl %><br />
-    <%= f.text_field :picurl %>
-  </p>
-  <p>
-    <%= f.label :modified %><br />
-    <%= f.datetime_select :modified %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+  <%= render 'form' %>
 
 <%= link_to 'Back', items_path %>
