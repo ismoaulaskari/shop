@@ -18,7 +18,7 @@
     <td><%=h item.price %></td>
     <td><%=h item.discount %></td>
     <td><%=h item.saldo %></td>
-    <td><%=h item.picurl %></td>
+    <td><a href="../uploads/<%=h item.picurl %>"><img src="../uploads/<%=h item.picurl %>" width="120" /></a></td>
     <td><%=h item.modified %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>

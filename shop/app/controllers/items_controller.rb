@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.xml
   def create
+    upload(params)
     @item = Item.new(params[:item])
     @category = Category.all
 
@@ -59,6 +60,7 @@ class ItemsController < ApplicationController
   # PUT /items/1
   # PUT /items/1.xml
   def update
+    upload(params)
     @item = Item.find(params[:id])
 
     respond_to do |format|
@@ -81,6 +83,16 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(items_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def upload(params)
+    uploaded_io = params[:item][:picurl]
+    unless uploaded_io.nil?
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:item][:picurl] = uploaded_io.original_filename
     end
   end
 end
