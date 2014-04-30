@@ -1,30 +1,16 @@
-<h1>Listing items</h1>
-
+<h1>Tuotteet</h1>
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Discount</th>
-    <th>Saldo</th>
-    <th>Picurl</th>
-    <th>Modified</th>
-  </tr>
-
 <% @items.each do |item| %>
   <tr>
-    <td><%=h item.name %></td>
-    <td><%=h item.category %></td>
-    <td><%=h item.description %></td>
-    <td><%=h item.price %></td>
-    <td><%=h item.discount %></td>
-    <td><%=h item.saldo %></td>
-    <td><a href="../uploads/<%=h item.picurl %>"><img src="../uploads/<%=h item.picurl %>" width="120" /></a></td>
-    <td><%=h item.created_at %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+<table><tr><td><%=h item.name %></td></tr><tr><td><i><%=h item.category %></i></td></tr><tr><td><b><%=h item.price-item.discount %></b> eur</td></tr><tr><td><i><%if item.saldo > 0 %>varastossa<%else%>loppu<%end%></i></td></tr></table>
+    </td>
+    <td>
+<table><tr><td><a href="../uploads/<%=h item.picurl %>"><img src="../uploads/<%=h item.picurl %>" width="120" /></a></td></tr></table>
+    </td>
+    <td>
+<table><tr><td><i>Päivitetty<br/> <%=h item.updated_at %></i></td></tr><tr><td><%= link_to 'Show', item %>|<%= link_to 'Edit', edit_item_path(item) %>|<%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td></tr></table>
+    </td>
   </tr>
 <% end %>
 </table>
