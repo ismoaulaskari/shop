@@ -14,4 +14,3 @@ Category.create(:name => 'Rannekorut', :parent => 'Korut')
 Category.create(:name => 'Nilkkakorut', :parent => 'Korut')
 Category.create(:name => 'Kännykkäkorut', :parent => 'Korut')
 Category.create(:name => 'Setit', :parent => 'Korut')
-
