@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  helper_method :admin?
   USERNAME, PASSWORD = "a", "b"
 #  before_filter :require_login
 #  before_filter :authenticate
@@ -46,8 +47,15 @@ class ApplicationController < ActionController::Base
   private 
   def authenticate 
     authenticate_or_request_with_http_basic do |username, password| 
+      session[:admin] = username
+      session[:adminpassword] = password
       username == USERNAME && password == PASSWORD
     end 
   end
+
+  def admin? 
+    session[:admin] == USERNAME && session[:adminpassword] == PASSWORD 
+  end
+
 
 end

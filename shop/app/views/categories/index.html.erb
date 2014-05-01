@@ -17,12 +17,16 @@
     <td><%=h category.picurl %></td>
     <td><%=h category.discount %></td>
     <td><%= link_to 'Show', category %></td>
+<% if admin? %>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>
     <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if admin? %>
 <%= link_to 'New category', new_category_path %>
+<% end %>

@@ -14,7 +14,11 @@
 <table><tr><td><%= link_to "<img src=\"../uploads/#{item.picurl}\" width=\"120\" />", item %></td></tr></table>
     </td>
     <td class="extra">
-<table><tr><td><i>Päivitetty<br/> <%=h item.updated_at %></i></td></tr><tr><td><%= link_to 'Show', item %>|<%= link_to 'Edit', edit_item_path(item) %>|<%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td></tr></table>
+<table><tr><td><i>Päivitetty<br/> <%=h item.updated_at %></i></td></tr><tr><td><%= link_to 'Show', item %>
+<% if admin? %>
+|<%= link_to 'Edit', edit_item_path(item) %>|<%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+</td></tr></table>
     </td>
   </tr>
   </table>

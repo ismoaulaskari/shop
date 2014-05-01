@@ -3,3 +3,4 @@ shop/log/*
 shop/tmp/**/*
 shop/config/database.yml
 shop/public/uploads/*
+*.swp
