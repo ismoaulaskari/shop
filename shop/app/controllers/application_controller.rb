@@ -4,9 +4,9 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :require_login
   USERNAME, PASSWORD = "a", "b"
-  before_filter :authenticate
+#  before_filter :require_login
+#  before_filter :authenticate
   layout "application"
 
   # Scrub sensitive parameters from your log

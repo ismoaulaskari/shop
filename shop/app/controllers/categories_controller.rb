@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_filter :require_login
+  before_filter :authenticate
 
   # GET /categories
   # GET /categories.xml

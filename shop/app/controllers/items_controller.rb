@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  before_filter :require_login, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate, :only => [:new, :edit, :create, :update, :destroy]
+
   # GET /items
   # GET /items.xml
   def index
