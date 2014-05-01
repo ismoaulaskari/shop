@@ -21,7 +21,7 @@
   <tr>
     <td>
       <% @order_items.each do |c| %>
-      <br><%= h c %>
+      <br><%= link_to c, item_path(c.item_id) %>
     <% end %>
     </td>
     <td><%=h order.sum %></td>
