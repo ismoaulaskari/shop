@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_filter :require_login
-  before_filter :authenticate
+  before_filter :require_login, :only => [:destroy]
+  before_filter :authenticate, :only => [:destroy]
 
   # GET /orders
   # GET /orders.xml

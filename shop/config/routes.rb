@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :order_items
+
   map.resources :categories
 
   map.resources :orders
@@ -8,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resources :news
-
+  map.addtocart 'items/:id/addtocart', :controller => 'order_items', :action => 'addtocart'
   # The priority is based upon order of creation: first created -> highest priority.
   #
 

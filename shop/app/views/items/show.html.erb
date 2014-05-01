@@ -8,6 +8,10 @@
 <p>
   <b>Name:</b>
   <%=h @item.name %>
+   <% form_for @item, :url => addtocart_path(@item), :html => {:method => :post}  do |f| %>
+        <%= f.hidden_field :id %>
+        <%= f.submit 'LISÄÄ OSTOSKORIIN' %>
+    <% end %>
 </p>
 
 <p>
