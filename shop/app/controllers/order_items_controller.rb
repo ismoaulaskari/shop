@@ -90,7 +90,7 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to(@order_item, :notice => 'OrderItem was successfully created.') }
+        format.html { redirect_to(orders_path, :notice => 'Tuote lisätty tilaukseen.') }
         format.xml  { render :xml => @order_item, :status => :created, :location => @order_item }
       else
         format.html { render :action => "new" }

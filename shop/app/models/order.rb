@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :order_items
+  has_many :order_items, :dependent => :destroy
   belongs_to :user
   validates_presence_of :paymethod, :name, :address, :zip, :city, :country, :phone, :email, :unless => "!skip_validations.nil?"
 

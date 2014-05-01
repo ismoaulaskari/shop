@@ -1,8 +1,7 @@
 class OrderItem < ActiveRecord::Base
   belongs_to :items
   belongs_to :orders
-  validates_presence_of :order_id,:item_id
-  attr_accessible :order_id,:item_id
+  validates_presence_of :order_id,:item_id,:amount,:item_salesprice
 
   def to_s
     @item = Item.find(self.item_id)
