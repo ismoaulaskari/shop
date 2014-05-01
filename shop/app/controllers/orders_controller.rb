@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
     @orders = Order.all(:conditions => { :user_id => @user_id })
     @order_items = []
     @orders.each do |o|
+      o.order_total_sum
       @items = OrderItem.all(:conditions => { :order_id => o.id })
       unless @items.nil? 
         @order_items.concat(@items) 
@@ -27,7 +28,8 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     #@order_items = Order_Items.find_by(order_id: params[:id]) 
-    @order_items = OrderItem.all 
+    @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
+    @order.order_total_sum   
 
     respond_to do |format|
       format.html # show.html.erb
@@ -49,6 +51,8 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
+    @order.order_total_sum
   end
 
   # POST /orders
@@ -71,6 +75,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1.xml
   def update
     @order = Order.find(params[:id])
+    @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
 
     respond_to do |format|
       if @order.update_attributes(params[:order])

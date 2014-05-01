@@ -5,6 +5,6 @@ class OrderItem < ActiveRecord::Base
 
   def to_s
     @item = Item.find(self.item_id)
-    "##{self.order_id}: ##{self.item_id} #{@item.name} x #{self.amount}, #{self.item_salesprice * self.amount}"
+    "##{self.order_id}: ##{self.item_id} #{@item.name} x #{self.amount}, #{self.item_salesprice * self.amount} eur"
   end
 end
