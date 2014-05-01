@@ -6,46 +6,51 @@
 </td>
 <td>
 <p>
-  <b>Name:</b>
+  <b>Tuote:</b>
   <%=h @item.name %>
    <% form_for @item, :url => addtocart_path(@item), :html => {:method => :post}  do |f| %>
         <%= f.hidden_field :id %>
+        Lkm. <%= f.text_field :saldo, :default => 1, :size => 1 %>
         <%= f.submit 'LISÄÄ OSTOSKORIIN' %>
     <% end %>
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>Kategoria:</b>
   <%=h @item.category %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Kuvaus:</b>
   <%=h @item.description %>
 </p>
 
 <p>
-  <b>Price:</b>
-  <%=h @item.price %>
+  <b>Hinta:</b>
+  <%=h @item.price-@item.discount %>
+<% if !@item.discount.nil? && @item.discount > 0 %>
+<marquee><blink><b>!! TARJOUS !!</b></blink></marquee>
 </p>
 
 <p>
-  <b>Discount:</b>
+  <b>Alennus:</b>
   <%=h @item.discount %>
+<% end %>
 </p>
 
 <p>
-  <b>Saldo:</b>
+  <b>Välittömästi varastossa:</b>
   <%=h @item.saldo %>
 </p>
 
+<!--
 <p>
-  <b>Picurl:</b>
+  <b>Kuva:</b>
   <%=h @item.picurl %>
 </p>
-
+-->
 <p>
-  <b>Modified:</b>
+  <b>Päivitetty:</b>
   <%=h @item.updated_at %>
 </p>
 

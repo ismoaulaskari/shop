@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  before_filter :require_login
-  before_filter :authenticate
+  before_filter :require_login, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate, :only => [:new, :edit, :create, :update, :destroy]
 
   # GET /categories
   # GET /categories.xml

@@ -11,6 +11,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :phone
       t.string :email
       t.string :notes
+      t.string :status
       t.references :user
 
       t.timestamps

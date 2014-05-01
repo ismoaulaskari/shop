@@ -43,7 +43,7 @@ class OrderItemsController < ApplicationController
     @order_id = session[:order_id]
     @order
     if @order_id
-      @order = Order.find(@order_id)
+      @order = Order.find_by_id(@order_id)
     end
     if(@order.nil?) 
       @order = Order.new
@@ -52,6 +52,8 @@ class OrderItemsController < ApplicationController
       session[:order_id] = @order.id
     end
     @order_item = OrderItem.new(params[:order_item])
+    @item = Item.find(@order_item.item_id)
+    @order_item.item_salesprice = @item.current_salesprice
 
     respond_to do |format|
       if @order_item.save
@@ -70,7 +72,7 @@ class OrderItemsController < ApplicationController
     @order_id = session[:order_id]
     @order
     if @order_id
-      @order = Order.find(@order_id)
+      @order = Order.find_by_id(@order_id)
     end
     if(@order.nil?) 
       @order = Order.new
@@ -82,6 +84,9 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new
     @order_item.order_id = @order.id
     @order_item.item_id = params[:item][:id]
+    @order_item.amount = params[:item][:saldo]
+    @item = Item.find(@order_item.item_id)
+    @order_item.item_salesprice = @item.current_salesprice
 
     respond_to do |format|
       if @order_item.save

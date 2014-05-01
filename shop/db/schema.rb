@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20140501093145) do
   create_table "order_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "item_id"
+    t.decimal  "item_salesprice", :precision => 8, :scale => 2
+    t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20140501093145) do
     t.string   "phone"
     t.string   "email"
     t.string   "notes"
+    t.string   "status"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

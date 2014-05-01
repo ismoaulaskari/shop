@@ -4,12 +4,14 @@
   <tr>
     <th>Order</th>
     <th>Item</th>
+    <th>Description</th>
   </tr>
 
 <% @order_items.each do |order_item| %>
   <tr>
     <td><%=h order_item.order_id %></td>
     <td><%=h order_item.item_id %></td>
+    <td><%=h order_item %></td>
     <td><%= link_to 'Show', order_item %></td>
     <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
     <td><%= link_to 'Destroy', order_item, :confirm => 'Are you sure?', :method => :delete %></td>

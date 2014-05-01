@@ -4,6 +4,14 @@
 </p>
 
 <p>
+  <b>Products:</b>
+  <% @order_items.each do |c| %>
+      <br><%= h c %>
+    <% end %>
+
+</p>
+
+<p>
   <b>Paymethod:</b>
   <%=h @order.paymethod %>
 </p>
@@ -45,7 +53,7 @@
 
 <p>
   <b>Created:</b>
-  <%=h @order.created %>
+  <%=h @order.created_at %>
 </p>
 
 <p>
