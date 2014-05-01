@@ -7,7 +7,14 @@ class OrdersController < ApplicationController
   # GET /orders.xml
   def index
     @user_id = session[:user_id]
-    @orders = Order.all(:conditions => {:user_id => @user_id})
+    @orders = Order.all(:conditions => { :user_id => @user_id })
+    @order_items = []
+    @orders.each do |o|
+      @items = OrderItem.all(:conditions => { :order_id => o.id })
+      unless @items.nil? 
+        @order_items.concat(@items) 
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
