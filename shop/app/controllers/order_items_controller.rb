@@ -1,4 +1,6 @@
 class OrderItemsController < ApplicationController
+  before_filter :track_session
+
   # GET /order_items
   # GET /order_items.xml
   def index
@@ -77,6 +79,7 @@ class OrderItemsController < ApplicationController
     if(@order.nil?) 
       @order = Order.new
       @order.skip_validations = true
+      @order.user_id = session[:user_id]
       @order.save
       session[:order_id] = @order.id
     end

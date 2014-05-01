@@ -9,6 +9,16 @@ class ApplicationController < ActionController::Base
 #  before_filter :authenticate
   layout "application"
 
+  #no stored user accounts so just disposable userid tracking
+  #could email user with userid and checksum
+  private
+  def track_session
+    if session[:user_id].nil?
+      @user = User.create
+      session[:user_id] = @user.id
+    end
+  end
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   private 

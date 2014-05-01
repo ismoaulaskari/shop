@@ -1,11 +1,13 @@
 class OrdersController < ApplicationController
   before_filter :require_login, :only => [:destroy]
   before_filter :authenticate, :only => [:destroy]
+  before_filter :track_session
 
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.all
+    @user_id = session[:user_id]
+    @orders = Order.all(:conditions => {:user_id => @user_id})
 
     respond_to do |format|
       format.html # index.html.erb
