@@ -36,7 +36,12 @@
     <td><%=h order.created_at %></td>
     <td><%=h order.status %></td>
     <td><%=h order.notes %></td>
-    <td><%= link_to 'Show', order %></td>
+    <td>
+       <% form_for order, :url => "/", :html => {:method => :post}  do |f| %>
+        <%= f.submit 'VAHVISTA TILAUS' %>
+      <% end %>
+    </td>
+    <!--<td><%= link_to 'Show', order %></td>-->
     <td><%= link_to 'Edit', edit_order_path(order) %></td>
     <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
