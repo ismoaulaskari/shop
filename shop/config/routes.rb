@@ -11,6 +11,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :news
   map.addtocart 'items/:id/addtocart', :controller => 'order_items', :action => 'addtocart'
+  map.help 'help', :controller => 'static', :action => 'help'
+  map.info 'info', :controller => 'static', :action => 'info'
+  map.feedback 'feedback', :controller => 'static', :action => 'feedback'
   # The priority is based upon order of creation: first created -> highest priority.
   #
 

@@ -3,9 +3,9 @@
 <td><%= link_to 'Korut', Category.find_by_name('Korut') %></td>
 <td><%= link_to 'Kortit', Category.find_by_name('Kortit') %></td>
 <td><%= link_to 'Saippuat',  Category.find_by_name('Saippuat') %></td>
-<td><%= link_to 'Miten tilaan', orders_path %></td>
-<td><%= link_to 'Tietoa yrityksestä', orders_path %></td>
-<td><%= link_to 'Anna palautetta', orders_path %></td>
+<td><%= link_to 'Miten tilaan', help_path %></td>
+<td><%= link_to 'Tietoa yrityksestä', info_path %></td>
+<td><%= link_to 'Anna palautetta', feedback_path %></td>
 <td><%= link_to 'Ostoskori', orders_path %></td>
 <% if admin? %>
 <td><%= link_to 'Kategoriat', categories_path %></td>
