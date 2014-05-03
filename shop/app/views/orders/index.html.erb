@@ -1,17 +1,12 @@
-<h1>Listing orders</h1>
+<h1>Tilaukset</h1>
 
 <table>
   <tr>
     <th>Tuotteet</th>
     <th>Kokonaishinta</th>
     <th>Maksutapa</th>
-    <th>Nimi</th>
-    <th>Katuosoite</th>
-    <th>Postinro</th>
-    <th>Kaupunki</th>
-    <th>Maa</th>
-    <th>Puhelin</th>
-    <th>Sähköposti</th>
+    <th>Osoite</th>
+    <th>Yhteystiedot</th>
     <th>Luotu</th>
     <th>Status</th>
     <th>Muistiinpanot</th>
@@ -26,13 +21,14 @@
     </td>
     <td><%=h order.sum %></td>
     <td><%=h order.paymethod %></td>
-    <td><%=h order.name %></td>
-    <td><%=h order.address %></td>
-    <td><%=h order.zip %></td>
-    <td><%=h order.city %></td>
-    <td><%=h order.country %></td>
-    <td><%=h order.phone %></td>
-    <td><%=h order.email %></td>
+    <td><%=h order.name %><br/>
+    <%=h order.address %><br/>
+    <%=h order.zip %><br/>
+    <%=h order.city %><br/>
+    <%=h order.country %>
+    </td><td>
+    <%=h order.phone %><br/>
+    <%=h order.email %></td>
     <td><%=h order.created_at %></td>
     <td><%=h order.status %></td>
     <td><%=h order.notes %></td>
@@ -42,12 +38,12 @@
       <% end %>
     </td>
     <!--<td><%= link_to 'Show', order %></td>-->
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Muokkaa', edit_order_path(order) %></td>
+    <td><%= link_to 'Tuhoa', order, :confirm => 'Haluatko varmasti tuhota tilauksen?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New order', new_order_path %>
+<%= link_to 'Tee uusi tilaus', new_order_path %>
