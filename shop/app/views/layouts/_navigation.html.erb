@@ -9,6 +9,9 @@
 <td><%= link_to 'Ostoskori', orders_path %></td>
 <% if admin? %>
 <td><%= link_to 'Kategoriat', categories_path %></td>
-
 <% end %>
+<% if logged_in? %>
+<td>Kirjautunut tunnuksella <%= current_user %>, <%= link_to 'LOG OUT', signout_path %></td>
+<% end %>
+
 </tr></table>

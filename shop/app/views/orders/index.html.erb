@@ -37,8 +37,8 @@
     <td><%=h order.status %></td>
     <td><%=h order.notes %></td>
     <td>
-       <% form_for order, :url => "/", :html => {:method => :post}  do |f| %>
-        <%= f.submit 'VAHVISTA TILAUS' %>
+       <% form_for order do |f| %>
+        <%= f.submit 'VAHVISTA TILAUS', :name => 'submit' %>
       <% end %>
     </td>
     <!--<td><%= link_to 'Show', order %></td>-->

@@ -79,14 +79,37 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        format.html { redirect_to(@order, :notice => 'Order was successfully updated.') }
-        format.xml  { head :ok }
+        if(params[:submit] == 'VAHVISTA TILAUS')
+          format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus valmiina jätettäväksi.') }
+          format.xml  { head :ok }
+        else
+          format.html { redirect_to(@order, :notice => 'Tietoja päivitetty.') }
+          format.xml  { head :ok }
+        end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end
     end
   end
+
+  # POST /orders
+  # POST /orders.xml
+  def confirm
+    @order = Order.find(params[:id])
+    @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
+
+    respond_to do |format|
+#      if @order.save
+        format.html { redirect_to(@order, :notice => 'Tilaus jätetty.') }
+        format.xml  { render :xml => @order, :status => :created, :location => @order }
+#      else
+#        format.html { render :action => "new" }
+#        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
+#      end
+    end
+  end
+
 
   # DELETE /orders/1
   # DELETE /orders/1.xml

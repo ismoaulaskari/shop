@@ -4,16 +4,23 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categories
 
   map.resources :orders
+  map.confirm 'confirm/:id/confirm', :controller => 'orders', :action => 'confirm'
 
   map.resources :items
 
   map.resources :users
 
   map.resources :news
+
   map.addtocart 'items/:id/addtocart', :controller => 'order_items', :action => 'addtocart'
+
   map.help 'help', :controller => 'static', :action => 'help'
   map.info 'info', :controller => 'static', :action => 'info'
   map.feedback 'feedback', :controller => 'static', :action => 'feedback'
+
+  map.sessions 'sessions', :controller => 'sessions', :action => 'create'
+  map.signin 'signin', :controller => 'sessions', :action => 'new'
+  map.signout 'signout', :controller => 'sessions', :action => 'destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   #
 

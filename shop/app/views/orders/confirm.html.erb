@@ -1,0 +1,65 @@
+<p>
+  <b>Sum:</b>
+  <%=h @order.sum %>
+</p>
+
+<p>
+  <b>Products:</b>
+  <% @order_items.each do |c| %>
+      <br><%= h c %>
+    <% end %>
+
+</p>
+
+<p>
+  <b>Paymethod:</b>
+  <%=h @order.paymethod %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @order.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @order.address %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @order.zip %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @order.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @order.country %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @order.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @order.email %>
+</p>
+
+<p>
+  <b>Created:</b>
+  <%=h @order.created_at %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @order.notes %>
+</p>
+
+
+<%= link_to 'Back', orders_path %>
