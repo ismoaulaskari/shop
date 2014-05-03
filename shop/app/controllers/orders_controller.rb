@@ -101,7 +101,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
 #      if @order.save
-        format.html { redirect_to(@order, :notice => 'Tilaus jätetty.') }
+        format.html { render :notice => 'Tilaus jätetty.' }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
 #      else
 #        format.html { render :action => "new" }
