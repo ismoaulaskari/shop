@@ -1,17 +1,17 @@
-<table><tr>
-<td><%= link_to 'Etusivu', items_path %></td>
-<td><%= link_to 'Korut', Category.find_by_name('Korut') %></td>
-<td><%= link_to 'Kortit', Category.find_by_name('Kortit') %></td>
-<td><%= link_to 'Saippuat',  Category.find_by_name('Saippuat') %></td>
-<td><%= link_to 'Miten tilaan', help_path %></td>
-<td><%= link_to 'Tietoa yrityksestä', info_path %></td>
-<td><%= link_to 'Anna palautetta', feedback_path %></td>
-<td><%= link_to 'Ostoskori', orders_path %></td>
+<table class='round navi'><tr>
+<td class='navi'><%= link_to 'Etusivu', items_path %></td>
+<td class='navi'><%= link_to 'Korut', Category.find_by_name('Korut') %></td>
+<td class='navi'><%= link_to 'Kortit', Category.find_by_name('Kortit') %></td>
+<td class='navi'><%= link_to 'Saippuat',  Category.find_by_name('Saippuat') %></td>
+<td class='navi'><%= link_to 'Miten tilaan', help_path %></td>
+<td class='navi'><%= link_to 'Tietoa yrityksestä', info_path %></td>
+<td class='navi'><%= link_to 'Anna palautetta', feedback_path %></td>
+<td class='navi'><%= link_to 'Ostoskori', orders_path %></td>
 <% if admin? %>
-<td><%= link_to 'Kategoriat', categories_path %></td>
+<td class='navi'><%= link_to 'Kategoriat', categories_path %></td>
 <% end %>
 <% if logged_in? %>
-<td>Kirjautunut tunnuksella <%= current_user %>, <%= link_to 'LOG OUT', signout_path %></td>
+<td class='navi'>Kirjautunut tunnuksella <%= current_user %>, <%= link_to 'LOG OUT', signout_path %></td>
 <% end %>
 
 </tr></table>

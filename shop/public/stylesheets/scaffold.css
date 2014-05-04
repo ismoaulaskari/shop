@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #ce436e; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -18,10 +18,27 @@ a:hover { color: #fff; background-color:#000; }
 
 td {
   padding: 3px;
+  background-color: #eee;
 }
-tr.prod:visited { color: #666; }
-tr.prod:hover { color: #fff; background-color:#999; }
+td.navi {
+  padding: 5px;
+  background-color: #330000;
+}
+table.navi {
+  padding: 5px;
+  background-color: #330000;
+}
+tr.navi {
+  background-color: #330000;
+}
 
+tr.prod:visited { color: #666; }
+tr.prod:hover { color: #000; background-color:#999; }
+
+.round {
+  border:2px solid;
+  border-radius:25px;
+}
 
 .fieldWithErrors {
   padding: 2px;
