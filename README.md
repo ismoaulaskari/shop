@@ -11,7 +11,10 @@ toiminnallisuus että käyttäjälle lähetään linkki
 sähköpostiin jolla hän löytää vanhat tilauksensa.
 
 Admin voi lisätä ja muokata kategoroita ja tuotteita
-ja vastaanottaa tilauksia sähköpostitse. Admin-moodi 
+ja vastaanottaa tilauksia sähköpostitse. Tilauksissa 
+ostaja maksaa ensin ja admin hoitaa tuotteen lähettämisen.
+
+Admin-moodi 
 pystyy periaattessa muokkaamaan melkein mitä vaan
 www-littymästä mutta sessioiden kanssa on vielä 
 säätöä. Admin-käyttäjätunnus luodaan tietokantaan 
@@ -31,7 +34,7 @@ app/controllers/application_controller.rb
 #sähköpostinlähetys
 lib/Smailer.rb
 app/controllers/orders_controller.rb
-#tää kohta: Smailer.send_email("admin@localhost", @order) #CONFIGURE THIS, check lib/Smailer.rb!
+#tää kohta: Smailer.send_email("admin@localhost", @order) 
 
 Tuotekategoriat on valmiiksi valitut mutta niitä voi vaihtaa
 laittamalla admin-sivuilla tai tietokantaan Categorioita.
@@ -45,5 +48,16 @@ käsin Firefoxilla ja Chromiumilla.
 
 <h3>Demo</h3>
 Demo hetkellisesti osoitteessa http://artannika.com/shop/items
+Saa leikkiä.
+
+Admin-moodiin saattaa päästä osoittessa http://artannika.com/shop/users
+jos se on saatu toimimaan. Ktunnus "admin" ssana "p"
+
+<h3>Tulevaisuus</h3>
+Sessionhallinnan bugit korjataan, uutispalsta tulee etusivulle,
+admin-puolta ja logitusta viilataan, headeriin ja footeriin tulee
+firman logoja ja tekstejä,
+ydintoiminnan yksikkötestit tehdään regressiotesteiksi ja sovellus
+laitetaan tuotantoon ihmisten testattavaksi.
 </pre>
 <a href="yuml.png"><img src="yuml.png" width="80%"></a>
