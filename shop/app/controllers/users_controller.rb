@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_login
+  before_filter :require_env
   before_filter :authenticate
 
   # GET /users

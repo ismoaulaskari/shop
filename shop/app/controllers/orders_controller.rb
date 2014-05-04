@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :require_login, :only => [:destroy]
+  before_filter :require_env, :only => [:destroy]
   before_filter :authenticate, :only => [:destroy]
   before_filter :track_session
 
@@ -100,7 +100,9 @@ class OrdersController < ApplicationController
     require 'Smailer'
     @order = Order.find(params[:id])
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
-    Smailer.send_email("admin@localhost", @order)
+    if Rails.env.production? then
+      Smailer.send_email("admin@localhost", @order) #CONFIGURE THIS, check lib/Smailer.rb!
+    end
     @order.status = "Tilaus jätetty"
 
     respond_to do |format|

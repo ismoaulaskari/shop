@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :admin?, :current_user, :logged_in?
   USERNAME, PASSWORD = "a", "b"
-#  before_filter :require_login
+#  before_filter :require_env
 #  before_filter :authenticate
   layout "application"
 
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   private 
-  def require_login 
+  def require_env 
     unless authorized? 
       request.env.each do |value| 
         logger.info value 
