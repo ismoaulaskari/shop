@@ -8,6 +8,14 @@
 </p>
 
 <p>
+/
+  <% @subcategories.each do |c| %>
+    <%= link_to c, c %>
+  <% end %>
+</p>
+
+
+<p>
   <%=h @category.picurl %>
 </p>
 

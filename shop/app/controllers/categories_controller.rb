@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @category_items = Item.all(:conditions => { :category_id => @category.id })
-    @subcategories =  Category.all(:conditions => { :parent => @category.id })
+    @subcategories =  Category.all(:conditions => { :parent => @category.name })
     @subcategories_items = []
     @subcategories.each do |s|
       @items = Item.all(:conditions => { :category_id => s.id }) 
