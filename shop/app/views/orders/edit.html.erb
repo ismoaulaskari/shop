@@ -16,7 +16,7 @@
   </p>
   <p>
     <%= f.label "Maksutapa"%><br />
-    <%= f.text_field :paymethod %>
+    <%= f.select(:paymethod, options_for_select([['Tilisiirto etukäteen', 'Tilisiirto'], ['Postiennakko +5 eur', 'Postiennakko']], 'Tilisiirto')) %>
   </p>
   <p>
     <%= f.label "Nimi"%><br />
@@ -36,7 +36,7 @@
   </p>
   <p>
     <%= f.label "Maa" %><br />
-    <%= f.text_field :country %>
+    <%= f.select(:country, options_for_select([['Suomi', 'Suomi']], 'Suomi')) %>
   </p>
   <p>
     <%= f.label "Puhelin" %><br />

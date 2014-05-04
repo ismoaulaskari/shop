@@ -16,6 +16,9 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+td {
+  padding: 3px;
+}
 tr.prod:visited { color: #666; }
 tr.prod:hover { color: #fff; background-color:#999; }
 

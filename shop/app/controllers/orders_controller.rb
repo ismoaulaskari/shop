@@ -41,6 +41,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.xml
   def new
     @order = Order.new
+    @order.status = "muokattavana"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -75,6 +76,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1.xml
   def update
     @order = Order.find(params[:id])
+    @order.order_total_sum
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
 
     respond_to do |format|
@@ -98,6 +100,7 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.find(params[:id])
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
+    @order.status = "Tilaus jätetty"
 
     respond_to do |format|
 #      if @order.save

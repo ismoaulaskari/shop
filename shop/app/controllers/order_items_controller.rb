@@ -50,6 +50,7 @@ class OrderItemsController < ApplicationController
     if(@order.nil?) 
       @order = Order.new
       @order.skip_validations = true
+      @order.status = "muokattavana"
       @order.save
       session[:order_id] = @order.id
     end
@@ -80,6 +81,7 @@ class OrderItemsController < ApplicationController
       @order = Order.new
       @order.skip_validations = true
       @order.user_id = session[:user_id]
+      @order.status = "muokattavana"
       @order.save
       session[:order_id] = @order.id
     end
@@ -126,7 +128,8 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(order_items_url) }
+      #format.html { redirect_to(order_items_url) }
+      format.html { redirect_to(orders_url) }
       format.xml  { head :ok }
     end
   end

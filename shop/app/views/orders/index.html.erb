@@ -2,21 +2,22 @@
 
 <table>
   <tr>
+    <th>Luotu</th>
     <th>Tuotteet</th>
     <th>Kokonaishinta</th>
     <th>Maksutapa</th>
     <th>Osoite</th>
     <th>Yhteystiedot</th>
-    <th>Luotu</th>
     <th>Status</th>
     <th>Muistiinpanot</th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
+    <td><%=h order.created_at.strftime("%e.%m.%Y %I:%M")  %></td>
     <td>
-      <% @order_items.each do |c| %>
-      <br><%= link_to c, item_path(c.item_id) %>
+      <% @order_items.each do |oi| %>
+      <br><%= link_to oi, item_path(oi.item_id) %> <%= link_to 'Poista', oi, :method => :delete %>
     <% end %>
     </td>
     <td><%=h order.sum %></td>
@@ -29,12 +30,14 @@
     </td><td>
     <%=h order.phone %><br/>
     <%=h order.email %></td>
-    <td><%=h order.created_at %></td>
-    <td><%=h order.status %></td>
+    <td><%=h order.status %><br/>
+    <%=h order.updated_at.strftime("%e.%m.%Y %I:%M") %></td>
     <td><%=h order.notes %></td>
     <td>
-       <% form_for order do |f| %>
-        <%= f.submit 'VAHVISTA TILAUS', :name => 'submit' %>
+      <% if(@order_items.size > 0) %>
+         <% form_for order do |f| %>
+          <%= f.submit 'VAHVISTA TILAUS', :name => 'submit' %>
+        <% end %>
       <% end %>
     </td>
     <!--<td><%= link_to 'Show', order %></td>-->

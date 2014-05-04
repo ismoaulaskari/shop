@@ -2,7 +2,10 @@ class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
   belongs_to :user
   validates_presence_of :paymethod, :name, :address, :zip, :city, :country, :phone, :email, :unless => "!skip_validations.nil?"
-  validates_acceptance_of :terms_of_service
+  validates_length_of :name, :phone, :email, :minimum => 6, :unless => "!skip_validations.nil?"
+  validates_format_of :email, :with => /.+@.+\..+/i, :unless => "!skip_validations.nil?"
+  validates_acceptance_of :terms_of_service, :message => "Säännöt on hyväksyttävä", :unless => "!skip_validations.nil?"
+  validates_associated :order_items, :unless => "!skip_validations.nil?"
 
   attr_accessor :skip_validations
   attr_protected :skip_validations
