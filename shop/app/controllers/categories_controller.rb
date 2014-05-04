@@ -17,8 +17,15 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   def show
     @category = Category.find(params[:id])
-    @items = Item.all(:conditions => { :category_id => @category.id })
+    @category_items = Item.all(:conditions => { :category_id => @category.id })
     @subcategories =  Category.all(:conditions => { :parent => @category.id })
+    @subcategories_items = []
+    @subcategories.each do |s|
+      @items = Item.all(:conditions => { :category_id => s.id }) 
+      unless @items.nil?
+        @subcategories_items.concat(@items)
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb

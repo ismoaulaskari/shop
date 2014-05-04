@@ -5,11 +5,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
   def index
-    @items = Item.all
-
+    @all_items = Item.all
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @items }
+      format.xml  { render :xml => @all_items }
     end
   end
 

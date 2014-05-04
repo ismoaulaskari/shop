@@ -1,29 +1,24 @@
 <p>
-  <b>Name:</b>
+  <%=h @category.parent %> /
   <%=h @category.name %>
 </p>
 
 <p>
-  <b>Parent:</b>
-  <%=h @category.parent %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%=h @category.description %>
 </p>
 
 <p>
-  <b>Picurl:</b>
   <%=h @category.picurl %>
 </p>
 
+<!--
 <p>
   <b>Discount:</b>
   <%=h @category.discount %>
 </p>
-
-<%=render :partial => "items/itemtable" %>
+-->
+<%=render :partial => "items/itemtable", :locals => { :items => @category_items } %>
+<%=render :partial => "items/itemtable", :locals => { :items => @subcategories_items } %>
 
 <% if admin? %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
