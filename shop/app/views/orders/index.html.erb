@@ -17,9 +17,11 @@
     <td><%=h order.created_at.strftime("%e.%m.%Y %I:%M")  %></td>
     <td>
       <% @order_items.each do |oi| %>
-      <br><%= link_to oi, item_path(oi.item_id) %>
-      <% if(order.status != 'Tilaus jätetty' || admin?) %> 
-        <%= link_to 'Poista', oi, :method => :delete %>
+      <% if(oi.order_id == order.id) %>
+        <br><%= link_to oi, item_path(oi.item_id) %>
+        <% if(order.status != 'Tilaus jätetty' || admin?) %> 
+          <%= link_to 'Poista', oi, :method => :delete %>
+        <% end %>
       <% end %>
     <% end %>
     </td>

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :admin?, :current_user, :logged_in?
   USERNAME, PASSWORD = "a", "b"
-#  before_filter :require_env
+  before_filter :require_env
 #  before_filter :authenticate
   layout "application"
 
