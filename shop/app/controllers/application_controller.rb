@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 # The logged_in? method simply returns true if the user is logged # in and false otherwise. It does this by "booleanizing" the # current_user method we created previously using a double ! operator. # Note that this is not common in Ruby and is discouraged unless you # really mean to convert something into true or false. 
   def authorized? 
     if Rails.env.production? then
-      request.env['HTTP_X_FORWARDED_HOST'].start_with? 'yourwebhost.com' if request.env['HTTP_X_FORWARDED_HOST'].present? 
+      request.env['HTTP_X_FORWARDED_HOST'].start_with? 'yourwebhost.com' if request.env['HTTP_X_FORWARDED_HOST'].present? #CONFIGURE THIS! 
     else
       return true
       #request.env['HTTP_REFERER'].start_with? 'http://localhost:3001' if request.env['HTTP_REFERER'].present?

@@ -29,12 +29,14 @@ config/environment.rb / config/environments/*
 config/database.yml
 
 #suojaus ja sessiot
-app/controllers/application_controller.rb 
+app/controllers/application_controller.rb #kohta 'yourwebhost.com' 
+#kannattaa muuttaa railsin apache-reverseproxyn nimeksi jos 
+#sellaista käyttää. Tämä jos virheilee se printaa envin logiin 
 
 #sähköpostinlähetys
 lib/Smailer.rb
 app/controllers/orders_controller.rb
-#tää kohta: Smailer.send_email("admin@localhost", @order) 
+#tää kohta: Smailer.send_email("admin@localhost", @opts) 
 
 Tuotekategoriat on valmiiksi valitut mutta niitä voi vaihtaa
 laittamalla admin-sivuilla tai tietokantaan Categorioita.
@@ -54,7 +56,8 @@ Admin-moodiin saattaa päästä osoittessa http://artannika.com/shop/users
 jos se on saatu toimimaan. Ktunnus "admin" ssana "p"
 
 <h3>Tulevaisuus</h3>
-Sessionhallinnan bugit korjataan, uutispalsta tulee etusivulle,
+Sessionhallinnan bugit ja tietosuoja ja users-tietoturva korjataan, 
+uutispalsta tulee etusivulle,
 admin-puolta ja logitusta viilataan, headeriin ja footeriin tulee
 firman logoja ja tekstejä,
 ydintoiminnan yksikkötestit tehdään regressiotesteiksi ja sovellus

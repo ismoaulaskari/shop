@@ -101,7 +101,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
     if Rails.env.production? then
-      Smailer.send_email("admin@localhost", @order) #CONFIGURE THIS, check lib/Smailer.rb!
+      @opts = Hash.new
+      @opts[:body] = @order
+      Smailer.send_email("admin@localhost", @opts) #CONFIGURE THIS, check lib/Smailer.rb!
     end
     @order.status = "Tilaus jätetty"
 
