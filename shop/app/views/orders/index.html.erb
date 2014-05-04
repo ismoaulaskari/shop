@@ -17,7 +17,10 @@
     <td><%=h order.created_at.strftime("%e.%m.%Y %I:%M")  %></td>
     <td>
       <% @order_items.each do |oi| %>
-      <br><%= link_to oi, item_path(oi.item_id) %> <%= link_to 'Poista', oi, :method => :delete %>
+      <br><%= link_to oi, item_path(oi.item_id) %>
+      <% if(order.status != 'Tilaus jätetty' || admin?) %> 
+        <%= link_to 'Poista', oi, :method => :delete %>
+      <% end %>
     <% end %>
     </td>
     <td><%=h order.sum %></td>
@@ -33,16 +36,18 @@
     <td><%=h order.status %><br/>
     <%=h order.updated_at.strftime("%e.%m.%Y %I:%M") %></td>
     <td><%=h order.notes %></td>
+    <% if(order.status != 'Tilaus jätetty' || admin?) %>
     <td>
       <% if(@order_items.size > 0) %>
-         <% form_for order do |f| %>
-          <%= f.submit 'VAHVISTA TILAUS', :name => 'submit' %>
-        <% end %>
+          <% form_for order do |f| %>
+            <%= f.submit 'VAHVISTA TILAUS', :name => 'submit' %>
+          <% end %>
       <% end %>
     </td>
     <!--<td><%= link_to 'Show', order %></td>-->
     <td><%= link_to 'Muokkaa', edit_order_path(order) %></td>
     <td><%= link_to 'Tuhoa', order, :confirm => 'Haluatko varmasti tuhota tilauksen?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

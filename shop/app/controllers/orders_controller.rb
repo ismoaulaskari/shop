@@ -97,19 +97,20 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.xml
   def confirm
+    require 'Smailer'
     @order = Order.find(params[:id])
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
-    send_emailorder("admin@localhost", @order)
+    Smailer.send_email("admin@localhost", @order)
     @order.status = "Tilaus jätetty"
 
     respond_to do |format|
-#      if @order.save
+      if @order.save
         format.html { render :notice => 'Tilaus jätetty.' }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
 #      else
 #        format.html { render :action => "new" }
 #        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
-#      end
+      end
     end
   end
 
