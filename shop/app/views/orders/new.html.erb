@@ -1,54 +1,48 @@
-<h1>New order</h1>
+<h1>Uusi tilaus</h1>
 
 <% form_for(@order) do |f| %>
-  <%= f.error_messages %>
-
   <p>
-    <%= f.label :sum %><br />
-    <%= f.text_field :sum %>
+    <%= f.label "Maksutapa"%><br />
+    <%= f.select(:paymethod, options_for_select([['Tilisiirto etukäteen', 'Tilisiirto'], ['Postiennakko +5 eur', 'Postiennakko']], 'Tilisiirto')) %>
   </p>
   <p>
-    <%= f.label :paymethod %><br />
-    <%= f.text_field :paymethod %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
+    <%= f.label "Nimi"%><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :address %><br />
+    <%= f.label "Katuosoite"%><br/>
     <%= f.text_field :address %>
   </p>
   <p>
-    <%= f.label :zip %><br />
+    <%= f.label "Postinumero" %><br />
     <%= f.text_field :zip %>
   </p>
   <p>
-    <%= f.label :city %><br />
+    <%= f.label "Kaupunki" %><br />
     <%= f.text_field :city %>
   </p>
   <p>
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
+    <%= f.label "Maa" %><br />
+    <%= f.select(:country, options_for_select([['Suomi', 'Suomi']], 'Suomi')) %>
   </p>
   <p>
-    <%= f.label :phone %><br />
+    <%= f.label "Puhelin" %><br />
     <%= f.text_field :phone %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label "Sähköposti" %><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :created %><br />
-    <%= f.datetime_select :created %>
+    <%= f.label "Hyväksyn tilaussäännöt" %><br />
+    <%= f.check_box :terms_of_service %>
   </p>
   <p>
-    <%= f.label :notes %><br />
+    <%= f.label "Muistiinpanot" %><br />
     <%= f.text_field :notes %>
   </p>
-  <p>
-    <%= f.submit 'Create' %>
+  <p> 
+    <%= f.submit "Tallenna" %> 
   </p>
 <% end %>
 

@@ -40,6 +40,10 @@ tr.prod:hover { color: #000; background-color:#999; }
   border-radius:25px;
 }
 
+.shadow {
+  box-shadow: 10px 10px 5px #222222;
+}
+
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
