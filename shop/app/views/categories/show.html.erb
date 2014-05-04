@@ -25,8 +25,8 @@
   <%=h @category.discount %>
 </p>
 -->
-<%=render :partial => "items/itemtable", :locals => { :items => @category_items } %>
-<%=render :partial => "items/itemtable", :locals => { :items => @subcategories_items } %>
+<%=render :partial => "items/itemtable", :locals => { :items => @category_items, :dots => 2 } %>
+<%=render :partial => "items/itemtable", :locals => { :items => @subcategories_items, :dots => 2 } %>
 
 <% if admin? %>
 <%= link_to 'Edit', edit_category_path(@category) %> |

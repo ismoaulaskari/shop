@@ -11,7 +11,7 @@
     </td>
     <td class="pic">
 <table><tr><td>
-<% if Rails.env.production? and dots? and dots == 1 %>
+<% if Rails.env.production? and dots == 1 %>
   <%= link_to "<img src=\"./uploads/#{item.picurl}\" width=\"120\" />", item %>
 <% else %>
   <%= link_to "<img src=\"../uploads/#{item.picurl}\" width=\"120\" />", item %>
