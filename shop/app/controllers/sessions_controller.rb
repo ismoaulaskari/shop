@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
     end
 
     def create
-      user = User.find(:conditions => { :username => params[:username] })
+      user = User.all(:conditions => { :username => params[:username], :password => params[:password] })
       session[:user_id] = user.id if not user.nil?
 
-      if user.nil? or not user.authenticate params[:password]
-        redirect_to :back, flash[:error] = "username and password do not match"
+      if user.nil? #or not user.password == params[:password]
+        redirect_to :back#, flash[:error] = "username and password do not match"
       else
         session[:user_id] = user.id
-        redirect_to user_path(user), flash[:error] = "Welcome back!"
+        redirect_to user_path(user)#, flash[:error] = "Welcome back!"
       end
 
     end

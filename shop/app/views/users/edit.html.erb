@@ -4,20 +4,24 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :provider %><br />
-    <%= f.text_field :provider %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label :uid %><br />
-    <%= f.text_field :uid %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :oauth_token %><br />
-    <%= f.text_field :oauth_token %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :oauth_expires_at %><br />
-    <%= f.datetime_select :oauth_expires_at %>
+    <%= f.label :created_at %><br />
+    <%= h @user.created_at %>
+  </p>
+  <p>
+    <%= f.label :updated_at %><br />
+    <%= h @user.updated_at %>
   </p>
   <p>
     <%= f.submit 'Update' %>

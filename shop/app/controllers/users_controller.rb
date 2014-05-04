@@ -37,7 +37,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    redirect_to :back
+    #@user = User.find(params[:id])
   end
 
   # POST /users
@@ -59,17 +60,20 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
+    redirect_to :back
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
-    end
+#not in use now
+#    @user = User.find(params[:id])
+#
+#    respond_to do |format|
+#      if @user.update_attributes(params[:user])
+#        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+#        format.xml  { head :ok }
+#      else
+#        format.html { render :action => "edit" }
+#        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+#      end
+#    end
   end
 
   # DELETE /users/1

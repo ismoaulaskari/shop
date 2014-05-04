@@ -100,6 +100,7 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.find(params[:id])
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
+    send_emailorder("admin@localhost", @order)
     @order.status = "Tilaus jätetty"
 
     respond_to do |format|

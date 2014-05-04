@@ -1,23 +1,17 @@
 <p>
-  <b>Provider:</b>
-  <%=h @user.provider %>
-</p>
-
-<p>
   <b>Uid:</b>
-  <%=h @user.uid %>
+  <%=h @user.username %>
 </p>
 
 <p>
-  <b>Oauth token:</b>
-  <%=h @user.oauth_token %>
+  <b>Created:</b>
+  <%=h @user.created_at %>
 </p>
 
 <p>
-  <b>Oauth expires at:</b>
-  <%=h @user.oauth_expires_at %>
+  <b>Updated:</b>
+  <%=h @user.updated_at %>
 </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -51,7 +51,7 @@
 -->
 <p>
   <b>Päivitetty:</b>
-  <%=h @item.updated_at %>
+  <%=h @item.updated_at.strftime("%e.%m.%Y %I:%M") %>
 </p>
 
 </td>

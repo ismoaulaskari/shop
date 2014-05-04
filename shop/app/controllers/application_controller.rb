@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
     #redirect_to signin_path, flash[:error] = 'you should be signed in' if current_user.nil?
     if current_user.nil?
       flash[:error] = 'you should be signed in'
-      redirect_to signin_path 
+#      redirect_to signin_path 
     end
   end
 
