@@ -17,6 +17,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   def show
     @category = Category.find(params[:id])
+    @items = Item.all(:conditions => { :category_id => @category.id })
+    @subcategories =  Category.all(:conditions => { :parent => @category.id })
 
     respond_to do |format|
       format.html # show.html.erb

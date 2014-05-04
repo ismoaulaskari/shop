@@ -11,7 +11,7 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%=h category.name %></td>
+    <td><%=render "../items/itemtable" %></td>
     <td><%=h category.parent %></td>
     <td><%=h category.description %></td>
     <td><%=h category.picurl %></td>

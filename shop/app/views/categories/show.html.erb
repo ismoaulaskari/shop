@@ -23,6 +23,7 @@
   <%=h @category.discount %>
 </p>
 
+<%=render :partial => "items/itemtable" %>
 
 <% if admin? %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
