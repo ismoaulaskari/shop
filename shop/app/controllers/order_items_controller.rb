@@ -47,7 +47,7 @@ class OrderItemsController < ApplicationController
     if @order_id
       @order = Order.find_by_id(@order_id)
     end
-    if(@order.nil?) 
+    if(@order.nil? or @order.status=='Tilaus jätetty') 
       @order = Order.new
       @order.skip_validations = true
       @order.status = "muokattavana"
@@ -77,7 +77,7 @@ class OrderItemsController < ApplicationController
     if @order_id
       @order = Order.find_by_id(@order_id)
     end
-    if(@order.nil? or @order.status='Tilaus jätetty') 
+    if(@order.nil? or @order.status=='Tilaus jätetty') 
       @order = Order.new
       @order.skip_validations = true
       @order.user_id = session[:user_id]

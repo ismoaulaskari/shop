@@ -19,7 +19,7 @@
 </td></tr></table>
     </td>
     <td class="extra">
-<table><tr><td><i>Päivitetty<br/> <%=h item.updated_at.strftime("%e.%m.%Y %I:%M") %></i></td></tr><tr><td><%= link_to 'Show', item %>
+<table><tr><td><i>Päivitetty<br/> <%=h item.updated_at.strftime("%e.%m.%Y %I:%M") %></i></td></tr><tr><td><%= link_to 'Näytä', item %>
 <% if admin? %>
 |<%= link_to 'Edit', edit_item_path(item) %>|<%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>

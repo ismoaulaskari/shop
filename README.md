@@ -9,6 +9,8 @@ tuotekataloogia ja tilata tuotteita itsepalveluna.
 Käyttäjien sessiot ovat tilapäisiä, myöhemmin lisätään
 toiminnallisuus että käyttäjälle lähetään linkki 
 sähköpostiin jolla hän löytää vanhat tilauksensa.
+Ongelmatilanteessa kannattaa kokeilla selaimen 
+uudelleenkäynnistystä.
 
 Admin voi lisätä ja muokata kategoroita ja tuotteita
 ja vastaanottaa tilauksia sähköpostitse. Tilauksissa 
