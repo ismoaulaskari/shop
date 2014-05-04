@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
         redirect_to :back#, flash[:error] = "username and password do not match"
       else
         session[:user_id] = user.id
-        redirect_to user_path(user)#, flash[:error] = "Welcome back!"
+        redirect_to items_path#, flash[:error] = "Welcome back!"
+        #redirect_to user_path(user)#, flash[:error] = "Welcome back!"
       end
 
     end
