@@ -11,7 +11,7 @@
 <td class='navi'><%= link_to 'Kategoriat', categories_path %></td>
 <% end %>
 <% if logged_in? %>
-<td class='navi'>Kirjautunut tunnuksella <%= current_user %>, <%= link_to 'LOG OUT', signout_path %></td>
+<td class='navi'>Kirjautunut tunnuksella <%= current_user.username %>, <%= link_to 'LOG OUT', signout_path %></td>
 <% end %>
 
 </tr></table>
