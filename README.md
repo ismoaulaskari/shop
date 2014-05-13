@@ -50,13 +50,6 @@ Automaattitestausta ei ole vielä tehty koodin eläessä kovasti,
 kaikki testaus toistaiseksi pääkehittäjän toimesta
 käsin Firefoxilla ja Chromiumilla.
 
-<h3>Demo</h3>
-Demo hetkellisesti osoitteessa http://artannika.com/shop/items
-Saa leikkiä.
-
-Admin-moodiin saattaa päästä osoittessa http://artannika.com/shop/users
-jos se on saatu toimimaan. Ktunnus "admin" ssana "p"
-
 <h3>Tulevaisuus</h3>
 Sessionhallinnan bugit ja tietosuoja ja users-tietoturva korjataan, 
 uutispalsta tulee etusivulle,
