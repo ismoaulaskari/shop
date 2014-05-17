@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  helper_method :admin?, :current_user, :logged_in?
+  helper_method :admin?, :adminonly, :current_user, :logged_in?
   USERNAME, PASSWORD = "a", "b"
   before_filter :require_env
 #  before_filter :authenticate
@@ -71,5 +71,8 @@ class ApplicationController < ActionController::Base
     @current_user and @current_user.username == 'admin'    
   end
 
+  def adminonly
+    admin? or redirect_to signin_path
+  end
 
 end

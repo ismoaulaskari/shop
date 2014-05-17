@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_env
   before_filter :authenticate
+  before_filter :adminonly, :only => [:index, :show, :edit, :destroy] 
 
   # GET /users
   # GET /users.xml
