@@ -17,8 +17,9 @@ class ApplicationController < ActionController::Base
     if session[:user_id].nil?
       @user = User.create
       session[:user_id] = @user.id
-logger.info("a track session #{session[:user_id]}")
+      logger.info("a track create user and session #{session[:user_id]}")
     end
+    logger.info("a track session exists #{session[:user_id]}")
   end
 
   # Scrub sensitive parameters from your log
@@ -47,27 +48,27 @@ logger.info("a track session #{session[:user_id]}")
 
   def current_user
     return nil if session[:user_id].nil? 
-logger.info("a try find session #{session[:user_id]}")
-    User.find(session[:user_id])
+     logger.info("a try find session #{session[:user_id]}")
+    @current_user = User.find(session[:user_id])
     rescue Exception
-  end
-
-  def logged_in?
-    current_user
   end
 
   private 
   def authenticate 
     #redirect_to signin_path, flash[:error] = 'you should be signed in' if current_user.nil?
-    if current_user.nil?
-logger.info("auth fail #{session[:user_id]}")
+    if session[:user_id]
+      logger.info("a try find session #{session[:user_id]}")
+      @current_user = User.find session[:user_id]
+    else
+      logger.info("auth fail #{session[:user_id]}")
       flash[:error] = 'you should be signed in'
       redirect_to signin_path 
     end
   end
 
   def admin? 
-    current_user and current_user.username == 'admin'    
+    @current_user = current_user
+    @current_user and @current_user.username == 'admin'    
   end
 
 
