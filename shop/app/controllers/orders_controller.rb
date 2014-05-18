@@ -7,7 +7,11 @@ class OrdersController < ApplicationController
   # GET /orders.xml
   def index
     @user_id = session[:user_id]
-    @orders = Order.all(:conditions => { :user_id => @user_id })
+    if admin?
+      @orders = Order.all
+    else
+      @orders = Order.all(:conditions => { :user_id => @user_id })
+    end
     @order_items = []
     @orders.each do |o|
       o.order_total_sum
