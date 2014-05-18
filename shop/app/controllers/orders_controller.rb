@@ -87,6 +87,12 @@ class OrdersController < ApplicationController
         if(params[:submit] == 'VAHVISTA TILAUS')
           format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus valmiina jätettäväksi.') }
           format.xml  { head :ok }
+        elsif(params[:submit] == 'VASTAANOTA TILAUS')
+          format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus merkitty vastaantotetuksi.') }
+          format.xml  { head :ok }
+        elsif(params[:submit] == 'POSTITA TILAUS')
+          format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus merkitty postitetuksi.') }
+          format.xml  { head :ok }
         else
           format.html { redirect_to(@order, :notice => 'Tietoja päivitetty.') }
           format.xml  { head :ok }

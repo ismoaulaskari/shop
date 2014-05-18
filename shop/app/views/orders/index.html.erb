@@ -38,7 +38,7 @@
     <td><%=h order.status %><br/>
     <%=h order.updated_at.strftime("%e.%m.%Y %I:%M") %></td>
     <td><%=h order.notes %></td>
-    <% if(order.status != 'Tilaus jätetty' || admin?) %>
+    <% if(!(order.status == 'Tilaus jätetty' || admin?)) %>
     <td>
       <% if(@order_items.size > 0) %>
           <% form_for order do |f| %>
@@ -49,6 +49,22 @@
     <!--<td><%= link_to 'Show', order %></td>-->
     <td><%= link_to 'Muokkaa', edit_order_path(order) %></td>
     <td><%= link_to 'Tuhoa', order, :confirm => 'Haluatko varmasti tuhota tilauksen?', :method => :delete %></td>
+    <% end %>
+    <% if(admin?) %>
+      <td>
+        <% submitvalue = '' %>       
+        <% if(order.status == 'Tilaus jätetty') %>
+          <% submitvalue = 'VASTAANOTA TILAUS' %>       
+        <% end %>
+        <% if(order.status == 'Lähetystä valmistellaan') %>
+          <% submitvalue = 'POSTITA TILAUS' %>       
+        <% end %>
+        <% form_for order do |f| %>
+          <%= f.submit submitvalue, :name => 'submit' %>
+        <% end %>
+      </td>
+      <td><%= link_to 'Muokkaa', edit_order_path(order) %></td>
+      <td><%= link_to 'Tuhoa', order, :confirm => 'Haluatko varmasti tuhota tilauksen?', :method => :delete %></td>
     <% end %>
   </tr>
 <% end %>
