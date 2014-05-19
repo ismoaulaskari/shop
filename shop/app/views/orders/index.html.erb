@@ -56,7 +56,7 @@
         <% if(order.status == 'Tilaus jätetty') %>
           <% submitvalue = 'VASTAANOTA TILAUS' %>       
         <% end %>
-        <% if(order.status == 'Lähetystä valmistellaan') %>
+        <% if(order.status == 'Toimitusta valmistellaan') %>
           <% submitvalue = 'POSTITA TILAUS' %>       
         <% end %>
         <% form_for order do |f| %>

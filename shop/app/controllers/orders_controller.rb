@@ -85,12 +85,15 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update_attributes(params[:order])
         if(params[:submit] == 'VAHVISTA TILAUS')
+          @order.status = "Tilaus jätetty"; @order.save
           format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus valmiina jätettäväksi.') }
           format.xml  { head :ok }
         elsif(params[:submit] == 'VASTAANOTA TILAUS')
+          @order.status = "Toimitusta valmistellaan"; @order.save
           format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus merkitty vastaantotetuksi.') }
           format.xml  { head :ok }
         elsif(params[:submit] == 'POSTITA TILAUS')
+          @order.status = "Postitettu"; @order.save
           format.html { redirect_to(confirm_path(@order), :notice => 'Tilaus merkitty postitetuksi.') }
           format.xml  { head :ok }
         else
@@ -115,7 +118,6 @@ class OrdersController < ApplicationController
       @opts[:body] = @order
       Smailer.send_email("admin@localhost", @opts) #CONFIGURE THIS, check lib/Smailer.rb!
     end
-    @order.status = "Tilaus jätetty"
 
     respond_to do |format|
       if @order.save
