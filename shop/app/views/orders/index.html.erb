@@ -38,7 +38,7 @@
     <td><%=h order.status %><br/>
     <%=h order.updated_at.strftime("%e.%m.%Y %I:%M") %></td>
     <td><%=h order.notes %></td>
-    <% if(!(order.status == 'Tilaus jätetty' || admin?)) %>
+    <% if(order.status == 'muokattavana' && !admin?) %>
     <td>
       <% if(@order_items.size > 0) %>
           <% form_for order do |f| %>

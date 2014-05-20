@@ -1,4 +1,4 @@
-<h1>Editing order</h1>
+<h1>Pyydämme lisätietoja</h1>
 
 <% form_for(@order) do |f| %>
   <%= f.error_messages %>
@@ -58,6 +58,7 @@
     <%= f.submit 'Päivitä', :name => 'submit' %>
   </p>
 <% end %>
+Emme luovuta tietojasi eteenpäin!
 
 <%= link_to 'Näytä', @order %> |
 <%= link_to 'Takaisin', orders_path %>
