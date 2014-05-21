@@ -94,7 +94,9 @@ class OrderItemsController < ApplicationController
     @order_item.item_salesprice = @item.current_salesprice
 
     respond_to do |format|
+    @item.saldo -= @order_item.amount
       if @order_item.save
+        @item.save
         format.html { redirect_to(orders_path, :notice => 'Tuote lisätty tilaukseen.') }
         format.xml  { render :xml => @order_item, :status => :created, :location => @order_item }
       else
@@ -125,7 +127,10 @@ class OrderItemsController < ApplicationController
   # DELETE /order_items/1.xml
   def destroy
     @order_item = OrderItem.find(params[:id])
+    @item = Item.find(@order_item.item_id)
+    @item.saldo += @order_item.amount
     @order_item.destroy
+    @item.save
 
     respond_to do |format|
       #format.html { redirect_to(order_items_url) }
