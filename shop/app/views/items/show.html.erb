@@ -8,11 +8,15 @@
 <p>
   <b>Tuote:</b>
   <%=h @item.name %>
-   <% form_for @item, :url => addtocart_path(@item), :html => {:method => :post}  do |f| %>
+   <%if @item.archived? %>
+   <i>Tuote loppu.</i>
+   <%else%>
+     <% form_for @item, :url => addtocart_path(@item), :html => {:method => :post}  do |f| %>
         <%= f.hidden_field :id %>
         Lkm. <%= f.text_field :saldo, :default => 1, :size => 1 %>
         <%= f.submit 'LISÄÄ OSTOSKORIIN' %>
-    <% end %>
+      <% end %>
+   <%end%>
 </p>
 
 <p>

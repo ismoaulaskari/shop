@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :discount
       t.integer :saldo
       t.string :picurl
+      t.boolean :archived
       t.references :category
 
       t.timestamps

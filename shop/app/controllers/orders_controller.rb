@@ -150,7 +150,10 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.xml
   def destroy
     @order = Order.find(params[:id])
-    @order.destroy
+#    @order.destroy #käsin kannasta
+    @order.archived = true
+    @order.skip_validations = true 
+    @order.save
 
     respond_to do |format|
       format.html { redirect_to(orders_url) }

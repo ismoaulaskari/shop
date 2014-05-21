@@ -13,6 +13,7 @@
   </tr>
 
 <% @orders.each do |order| %>
+<%if !order.archived?%>
   <tr>
     <td><%=h order.created_at.strftime("%e.%m.%Y %I:%M")  %></td>
     <td>
@@ -52,21 +53,24 @@
     <% end %>
     <% if(admin?) %>
       <td>
-        <% submitvalue = '' %>       
+        <% submitvalue = nil %>       
         <% if(order.status == 'Tilaus jätetty') %>
           <% submitvalue = 'VASTAANOTA TILAUS' %>       
         <% end %>
         <% if(order.status == 'Toimitusta valmistellaan') %>
           <% submitvalue = 'POSTITA TILAUS' %>       
         <% end %>
+        <%if submitvalue %>
         <% form_for order do |f| %>
           <%= f.submit submitvalue, :name => 'submit' %>
         <% end %>
+        <%end%>
       </td>
       <td><%= link_to 'Muokkaa', edit_order_path(order) %></td>
-      <td><%= link_to 'Tuhoa', order, :confirm => 'Haluatko varmasti tuhota tilauksen?', :method => :delete %></td>
+      <td><%= link_to 'Arkistoi', order, :confirm => 'Haluatko varmasti arkistoida tilauksen?', :method => :delete %></td>
     <% end %>
   </tr>
+<%end%>
 <% end %>
 </table>
 
