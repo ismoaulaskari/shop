@@ -1,10 +1,16 @@
 <p>
-  <b>Sum:</b>
+  <b>Status:</b>
+  <%=h @order.status %>
+</p>
+
+
+<p>
+  <b>Kokonaishinta:</b>
   <%=h @order.sum %>
 </p>
 
 <p>
-  <b>Products:</b>
+  <b>Tuotteet:</b>
   <% @order_items.each do |c| %>
       <br><%= h c %>
     <% end %>
@@ -12,54 +18,55 @@
 </p>
 
 <p>
-  <b>Paymethod:</b>
+  <b>Maksutapa:</b>
   <%=h @order.paymethod %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>Nimi:</b>
   <%=h @order.name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Osoite:</b>
   <%=h @order.address %>
 </p>
 
 <p>
-  <b>Zip:</b>
+  <b>Postinumero:</b>
   <%=h @order.zip %>
 </p>
 
 <p>
-  <b>City:</b>
+  <b>Kaupunki:</b>
   <%=h @order.city %>
 </p>
 
 <p>
-  <b>Country:</b>
+  <b>Maa:</b>
   <%=h @order.country %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Puhelin:</b>
   <%=h @order.phone %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Sähköposti:</b>
   <%=h @order.email %>
 </p>
 
 <p>
-  <b>Created:</b>
-  <%=h @order.created_at %>
+  <b>Päivitetty:</b>
+  <%=h @order.updated_at %>
 </p>
 
 <p>
-  <b>Notes:</b>
+  <b>Huom:</b>
   <%=h @order.notes %>
 </p>
 
 Saat vielä vahvistussähköpostin tilauksestasi. Kiitos jo etukäteen!
 <%= link_to 'Takaisin', orders_path %>
+
