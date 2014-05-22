@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signout 'signout', :controller => 'sessions', :action => 'destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   #
+  map.env 'env', :controller => 'home', :action => 'index'
 
   map.root :controller => "home"
 
