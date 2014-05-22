@@ -114,22 +114,21 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
     @recipient = @order.email
-
-#    case order.status
-#    when "Tilaus jätetty"
-#
-#    when "Toimitusta valmistellaan"
-#
-#    when "Postitettu"
-#
-#    else
-#
-#    end
+    @help = "\n\n"
+    case order.status
+    when "Tilaus jätetty"
+      @help += "Alustava tilauksesi on jätetty, tarkka summa vahvistetaan pian sähköpostitse.\nTilaus maksetaan etukäteen ja se maksamatta peruuntuu automaattisesti 2 viikon sisällä."
+    when "Toimitusta valmistellaan"
+      @help += "Tilauksesi on maksettu ja tuotteita valmistellaan lähettäväksi."
+    when "Postitettu"
+      @help += "Tilauksesi on lähetetty."
+    end
 
     if Rails.env.production? then
       @opts = Hash.new
-      @opts[:subject] = "artannika.com: @order.status"
-      @opts[:body] = @order.status + "\n\nSisältö:\n#{@order_items}\n\n{#@order_items}\n\n#{@order.id}"
+      @opts[:subject] = "artannika.com: #{@order.status}"
+      @message = @order.status + "\n\nSisältö:\n#{@order_items}\n\n{#@order_items}\n\n#{@order.id}"
+      @opts[:body] = @message + @help
       Smailer.send_email(@recipient, @opts) #CONFIGURE THIS, check lib/Smailer.rb!
       Smailer.send_email("admin@localhost", @opts) #CONFIGURE THIS, check lib/Smailer.rb!
     end
