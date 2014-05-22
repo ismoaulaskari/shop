@@ -115,7 +115,7 @@ class OrdersController < ApplicationController
     @order_items = OrderItem.all(:conditions => { :order_id => @order.id }) 
     @recipient = @order.email
     @help = "\n\n"
-    case order.status
+    case @order.status
     when "Tilaus jätetty"
       @help += "Alustava tilauksesi on jätetty, tarkka summa vahvistetaan pian sähköpostitse.\nTilaus maksetaan etukäteen ja se maksamatta peruuntuu automaattisesti 2 viikon sisällä."
     when "Toimitusta valmistellaan"
