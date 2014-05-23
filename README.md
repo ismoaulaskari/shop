@@ -24,7 +24,9 @@ User-modeliin.
 
 <p>
 <img src="shop1.png"/>
+</p><p>
 <img src="shop2.png"/>
+</p><p>
 <img src="shop3.png"/>
 </p>
 
