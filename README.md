@@ -22,6 +22,12 @@ www-littymästä mutta sessioiden kanssa on vielä
 säätöä. Admin-käyttäjätunnus luodaan tietokantaan 
 User-modeliin.
 
+<p>
+<img src="shop1.png"/>
+<img src="shop2.png"/>
+<img src="shop3.png"/>
+</p>
+
 <h3>Asennus</h3>
 Vaatii rails-tuntemusta. Koko projektikansio shop pyöräytetään käytiin 
 rails 2.35(ruby 1.87)-sovelluksena.
